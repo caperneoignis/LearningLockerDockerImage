@@ -22,12 +22,12 @@ If you run Mongo externally, ensure you set the database to learninglocker_v2, R
 # How to run
 
 ````
-docker run -e MONGO_URL={some_url} -e SITE_URL={hostIP} -p 80:80 --name LL caperneoignis/learning_locker_v2:latest
+docker run -d -e MONGO_URL={some_url} -e SITE_URL={hostIP} -p 80:80 --name LL caperneoignis/learning_locker_v2:latest
 ````
 To run with defaults just use
 
 ````
-docker run -p 80:80 --name LL caperneoignis/learning_locker_v2:latest
+docker run -d -p 80:80 --name LL caperneoignis/learning_locker_v2:latest
 ````
 
 
