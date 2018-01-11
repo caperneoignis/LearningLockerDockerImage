@@ -4,7 +4,9 @@ This is a docker file that will build Learning Locker V2, with default values, y
 
 # Docker Image commands
 
-The purpose of this image is to be able to run Learning Locker V2 in a docker image. You can use the included MongoDB and Redis servers in the image, or set your own through -e. So if you want persistant data you can use and external Mongo database or for pure testing just use the interal. I would not recommend using volume to the data directory of Mongo or Redis since permissions and the such may get wonky in that host directory.
+The purpose of this image is to be able to run Learning Locker V2 in a docker image. You can use the included MongoDB and Redis servers in the image, or set your own through -e.
+So if you want persistent data you can use an external Mongo database or for pure testing just use the interal. 
+I have setup volume for the MongoDB, however, I have not fully tested it long term.
 
 If you run Mongo externally, ensure you set the database to learninglocker_v2, Redis DB can be changed from 0 to whatever using ' -e REDIS_DB=1 ' . 
 
@@ -24,10 +26,13 @@ If you run Mongo externally, ensure you set the database to learninglocker_v2, R
 ````
 docker run -d -e MONGO_URL={some_url} -e SITE_URL={hostIP} -p 80:80 --name LL caperneoignis/learning_locker_v2:latest
 ````
-To run with defaults just use
 
+To run with defaults just use
 ````
 docker run -d -p 80:80 --name LL caperneoignis/learning_locker_v2:latest
 ````
 
-
+To run with volume for persistent data
+````
+docker run -d -p 80:80 -v some_volume:/var/lib/mongo:rw --name LL caperneoignis/learning_locker_v2:latest
+````
