@@ -1,6 +1,10 @@
 # LearningLockerDockerImage
 This is a docker file that will build Learning Locker V2, with default values, you can also set the redis and mongo url's and port through -e commands at run time. 
 
+# This is still in DEV
+Please do not use this repo yet. I'm still in the process of setting this image up, so it can start up fast. So, please do not use this yet, unless you know there is still work to be done on it. 
+Thank you.
+
 
 # Docker Image commands
 
